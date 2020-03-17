@@ -1,0 +1,46 @@
+<section class="contenedor">
+    <div class="contenedorImagen">
+        <img class="image" width="100%" height="100%" src="../../../assets/Arcos-de-Guadalajara.png">
+    </div>
+
+    <div class="conenedorRegistro">
+        <div class="contenedorFormulario" fxLayout="column">
+            <div>
+                <h2 class="mat-display1" style="text-align:center;"> Iniciar sesión</h2>
+            </div>
+
+            <div fxLayout="column">
+                <form #f="ngForm" (ngSubmit)="login(f)">
+                    <div>
+                        <mat-form-field class="medidaInput">
+                            <input matInput type="email" ngModel name="email" #email="ngModel" placeholder="Ingresa tu correo electrónico" required email>
+                            <mat-error *ngIf="email.touched && email.errors?.required">Correo electrónico es requerico
+                            </mat-error>
+                            <mat-error *ngIf="email.touched && email.errors?.email">Tu entrada no coincide con el formato de un correo electrónico</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field class="medidaInput">
+                            <input matInput type="password" ngModel name="password" #password="ngModel" type="password" placeholder="Introduce tu contraseña" required minlength="6">
+                            <mat-error *ngIf="password.touched && password.errors?.required">Contraseña es requerida
+                            </mat-error>
+                            <mat-error *ngIf="password.touched && password.errors?.minlength">Tu contraseña debe de tener +6 caracteres</mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <button mat-raised-button color="primary" class="btn-delete activatebutton" [disabled]="f.invalid">Iniciar
+                            sesión</button>
+                    </div>
+                    <div>
+                        <p style="text-align: center;">¿Aún no tienes una cuenta? <a routerLink="/registro" routerLinkActive="active" onmouseout="this.style.color='black'" onmouseover="this.style.color='blue'" style="color:black;">Registrate
+                                aquí</a>
+                        </p>
+                    </div>
+                </form>
+                <br>
+                <mat-error *ngIf="errorMessage">{{errorMessage}}</mat-error>
+            </div>
+        </div>
+    </div>
+</section>

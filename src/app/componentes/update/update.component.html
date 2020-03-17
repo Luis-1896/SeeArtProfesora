@@ -1,0 +1,40 @@
+<div class="contenedorAgregar">
+
+    <div class="tituloSeeArt" fxLayout="column" fxLayoutAlign="center">
+        <div class="titulo">
+            <img class="image" width="100%" heigth="8vh" src="../../../assets/SeeArt.png">
+        </div>
+    </div>
+
+    <div class="agregarAlumno" fxLayout="column" fxLayoutAlign="space-between stretch">
+        <div>
+            <h3 class="mat-display-2" style="text-align:center; margin: 2% 3% 0;">Editar alumno {{NombreAlumno}}</h3>
+        </div>
+        <form #f="ngForm" (ngSubmit)="editar(f)" style="margin:22% 3% 0;">
+
+            <div>
+                <mat-form-field class="medidaInput">
+                    <input matInput ngModel name="nombre" #nombre="ngModel" type="text" placeholder="Introduce el nombre completo del alumno">
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field class="medidaInput">
+                    <input matInput ngModel name="nickname" #nickname="ngModel" type="text" placeholder="Introduce el alias del alumno">
+                </mat-form-field>
+            </div>
+
+            <div>
+                <button mat-raised-button color="primary" style="margin-left: 35%; margin-right: 3%;">Actualizar</button>
+                <button mat-raised-button color="war" (click)="regresar()">cancelar</button>
+            </div>
+
+        </form>
+    </div>
+
+    <div class="sliderSeeArt">
+        <div style="margin-top: 18vh;" fxShow fxHide.xs>
+            <angular-image-slider [autoRotate]="true" [autoRotateAfter]="5000" [autoRotateRight]="true" [images]="imagesUrl"></angular-image-slider>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,110 @@
+h1,
+h2,
+h3,
+p {
+    font-family: "Times New Roman", Times, cursive;
+}
+
+
+/* Styles for tab labels */
+
+::ng-deep .mat-tab-label {
+    min-width: 100px !important;
+    padding: 5px;
+    background-color: transparent;
+    color: black;
+    font-weight: 700;
+}
+
+
+/* Styles for the active tab label */
+
+::ng-deep .mat-tab-label .mat-tab-label-active {
+    min-width: 100px !important;
+    padding: 5px;
+    color: black;
+    font-weight: 700;
+}
+
+
+/* Styles for the ink bar */
+
+::ng-deep .mat-ink-bar {
+    background-color: green;
+}
+
+::ng-deep .mat-form-field-label {
+    /*change color of label */
+    color: rgb(63, 81, 181) !important;
+}
+
+ ::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: rgb(63, 81, 181) !important;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+    /*change color of label cuando ya esta seleccionado*/
+    color: rgb(194, 24, 91) !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+    /*change color of underline when focused*/
+    background-color: rgb(194, 24, 91) !important;
+    ;
+}
+
+.activatebutton {
+    margin-top: 30px;
+    width: 100%;
+}
+
+.btn-delete:disabled {
+    color: rgba(19, 14, 19, 0.63);
+    background-color: rgba(129, 128, 126, 0.233);
+}
+
+.contenedorJ {
+    width: 100%;
+    position: relative;
+}
+
+.contenedorAgregar {
+    width: 100%;
+    height: 82vh;
+    position: relative;
+}
+
+.titulo {
+    width: 100%;
+    height: 8vh;
+    margin-top: 37vh;
+    position: relative;
+}
+
+.noData {
+    width: 100%;
+    height: 10vh;
+    position: absolute;
+    margin-top: 5%;
+}
+
+.dataTabla {
+    width: 80%;
+    margin-left: 10%;
+    position: absolute;
+}
+
+.tituloJugadores {
+    width: 100%;
+    height: 10vh;
+    position: absolute;
+    margin-top: 1vh;
+}
+
+.contenedorAgregarJugador {
+    width: 100%;
+    height: 71vh;
+    position: absolute;
+    margin-top: 11vh;
+}

@@ -1,0 +1,112 @@
+h1,
+h2,
+h3,
+p {
+    font-family: "Times New Roman", Times, cursive;
+}
+
+.contenedor {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.logotipos {
+    width: 100%;
+    height: 20vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.logoUPIITA {
+    width: 30%;
+    height: 20vh;
+    position: absolute;
+}
+
+.imageUPIITA {
+    margin-left: 25%;
+    margin-top: 3%;
+}
+
+.titulo {
+    width: 40%;
+    height: 20vh;
+    margin-top: 1%;
+    position: absolute;
+    left: 30%;
+}
+
+.logoCENDI {
+    width: 30%;
+    height: 20vh;
+    position: absolute;
+    left: 70%;
+}
+
+.sliderSeeArt {
+    position: absolute;
+    margin-top: 30vh;
+    margin-left: 15%;
+    margin-right: 15%;
+    width: 70%;
+    height: 60vh;
+}
+
+.opciones {
+    position: absolute;
+    width: 100%;
+    height: 45vh;
+    margin-top: 92vh;
+}
+
+.jugadores {
+    width: 33%;
+    height: 100%;
+    position: absolute;
+}
+
+.videojuegos {
+    width: 33%;
+    height: 100%;
+    margin-left: 33%;
+    position: absolute;
+}
+
+.galeria {
+    width: 33%;
+    height: 100%;
+    margin-left: 66%;
+    position: absolute;
+}
+
+.contenedorJugador {
+    position: absolute;
+    margin-top: 5%;
+    width: 90%;
+    height: 80%;
+    margin-left: 5%;
+    border: 1px solid rgb(24, 46, 175);
+    border-radius: 20px;
+}
+
+.tituloOP {
+    position: absolute;
+    width: 100%;
+    height: 25%;
+}
+
+.contenidoOP {
+    position: absolute;
+    width: 100%;
+    height: 52%;
+    top: 25%
+}
+
+.accederOP {
+    position: absolute;
+    width: 100%;
+    height: 25%;
+    bottom: 0;
+}

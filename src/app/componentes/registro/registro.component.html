@@ -1,0 +1,68 @@
+<section class="contenedor">
+    <div class="contenedorImagen">
+        <img class="image" width="100%" height="100%" src="../../../assets/TemploPabellonDeOro.png">
+    </div>
+    <div class="conenedorRegistro">
+        <div class="contenedorFormulario" fxLayout="column">
+            <div>
+                <h2 class="mat-display1" style="text-align:center;"> Registrar</h2>
+            </div>
+            <div fxLayout="column">
+                <form #f="ngForm" (ngSubmit)="signup(f)">
+                    <div>
+                        <mat-form-field class="medidaInput">
+                            <input matInput ngModel name="name" #name="ngModel" type="text" placeholder="Introduce tu nombre completo" required>
+                            <mat-error *ngIf="name.touched">Nombre es Requerido</mat-error>
+                        </mat-form-field>
+
+                    </div>
+
+                    <div>
+                        <mat-form-field class="medidaInput">
+                            <input matInput ngModel name="email" #email="ngModel" type="email" placeholder="Introduce tu correo electrónico" required email>
+                            <mat-error *ngIf="email.touched && email.errors?.required">Correo electrónico es requerico
+                            </mat-error>
+                            <mat-error *ngIf="email.touched && email.errors?.email">Tu entrada no coincide con el formato de un correo electrónico
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <mat-form-field class="medidaInput">
+                            <input matInput ngModel name="password" #password="ngModel" [type]="hide ? 'password' : 'text'" placeholder="Introduce tu contraseña" required minlength="6">
+
+                            <mat-error *ngIf="password.touched && password.errors?.required">Contraseña es requerida
+                            </mat-error>
+                            <mat-error *ngIf="password.touched && password.errors?.minlength">Tu contraseña debe de tener +6 caracteres
+                            </mat-error>
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" style="color:rgb(63, 81, 181)">
+                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <mat-form-field class="medidaInput">
+                            <input matInput ngModel name="passwordConfirm" #passwordConfirm="ngModel" [type]="hide ? 'password' : 'text'" placeholder="Confirma tu contraseña" required>
+                            <mat-error *ngIf="passwordConfirm.invalid && passwordConfirm.touched">Confirmar tu contraseña es requerido
+                            </mat-error>
+                            <mat-error *ngIf="passwordConfirm.value !== password.value && passwordConfirm.touched">
+                                No coinciden las contraseñas</mat-error>
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" style="color:rgb(63, 81, 181)">
+                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <button mat-raised-button color="primary" class="btn-delete activatebutton" [disabled]="f.invalid || passwordConfirm.value !== password.value">Crear cuenta</button>
+                    </div>
+                </form>
+                <br>
+                <mat-error *ngIf="errorMessage">{{errorMessage}}</mat-error>
+
+            </div>
+        </div>
+
+    </div>
+</section>

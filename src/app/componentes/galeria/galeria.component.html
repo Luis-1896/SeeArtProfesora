@@ -1,0 +1,226 @@
+<section class="contenedorGaleria">
+    <mat-tab-group mat-align-tabs="end">
+        <!-- Contenedor 1 -->
+        <mat-tab label="México">
+            <div class="contenedorAgregar">
+
+                <div class="titulo">
+                    <h2 class="mat-display-2" style="text-align:center;">Agregar imagenes para México</h2>
+                </div>
+
+                <form class="bodyAgregar" [formGroup]="formTemplate" (submit)="agregarMexico(formTemplate.value)">
+                    <div class="imagen">
+                        <img [src]="imagenFuente" width="70%" height="100%" style="margin-left: 15%;" (click)="fileUploader.click()">
+                    </div>
+                    <div fxLayout="colums" class="bodyDatos">
+                        <div style="margin-left: 15%; width: 70%;">
+                            <label>Selecciona una imagen</label><br>
+                            <input type="file" accept="image/*" class="form-control" #fileUploader formControlName="imagenUrl" (change)="mostrarVistaPrevia($event)">
+                            <div class="text-danger" *ngIf="mostrar && formControls.imagenUrl.errors?.required">Imagen es requerida
+                            </div>
+                        </div>
+                        <div style="margin-left: 15%; width: 70%;">
+                            <mat-form-field class="medidaInput">
+                                <mat-label>Título</mat-label>
+                                <input matInput placeholder="Ingresa el título de la imagen" formControlName="titulo" required>
+                                <mat-error *ngIf="mostrar && formControls.titulo.hasError('required')">Es necesario que ingrese un titulo para la imagen
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div style="margin-left: 15%; width: 70%;">
+                            <mat-form-field class="medidaInput">
+                                <mat-label>Descripcion</mat-label>
+                                <textarea matInput placeholder="Ingresa una descripcion" formControlName="descripcion" required></textarea>
+                                <mat-error *ngIf="mostrar && formControls.descripcion.hasError('required')">Es necesario que ingrese una descripción historica de la imagen
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div style="margin-left: 15%; width: 70%;">
+                            <select formControlName="categoria" class="form-control">
+                                <option value="Pinturas">Pinturas</option>
+                                <option value="Esculturas">Esculturas</option>
+                                <option value="Lugares">Lugares</option>
+                            </select>
+                        </div>
+                        <div style="margin-left: 15%; width: 70%;" hidden>
+                            <input class="form-control" type="number" formControlName="id" placeholder="descripcion">
+                        </div>
+
+                        <div style="margin-left: 15%; margin-top: 3%; width: 70%;">
+                            <button mat-raised-button color="primary" class="btn-delete activatebutton" [disabled]="formTemplate.invalid">Agregar</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </mat-tab>
+
+        <!-- Contenedor 2 -->
+        <mat-tab label="Francia">
+            <div class="contenedorAgregar">
+
+                <div class="titulo">
+                    <h2 class="mat-display-2" style="text-align:center;">Agregar imagenes para Francia</h2>
+                </div>
+
+                <form class="bodyAgregar" [formGroup]="formTemplate" (submit)="agregarFrancia(formTemplate.value)">
+                    <div class="imagen">
+                        <img [src]="imagenFuente" width="70%" height="100%" style="margin-left: 15%;" (click)="fileUploader.click()">
+                    </div>
+                    <div fxLayout="colums" class="bodyDatos">
+                        <div style="margin-left: 15%; width: 70%;">
+                            <label>Selecciona una imagen</label><br>
+                            <input type="file" accept="image/*" class="form-control" #fileUploader formControlName="imagenUrl" (change)="mostrarVistaPrevia($event)">
+                            <div class="text-danger" *ngIf="mostrar && formControls.imagenUrl.errors?.required">Imagen es requerida
+                            </div>
+                        </div>
+                        <div style="margin-left: 15%; width: 70%;">
+                            <mat-form-field class="medidaInput">
+                                <mat-label>Título</mat-label>
+                                <input matInput placeholder="Ingresa el título de la imagen" formControlName="titulo" required>
+                                <mat-error *ngIf="mostrar && formControls.titulo.hasError('required')">Es necesario que ingrese un titulo para la imagen
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div style="margin-left: 15%; width: 70%;">
+                            <mat-form-field class="medidaInput">
+                                <mat-label>Descripcion</mat-label>
+                                <textarea matInput placeholder="Ingresa una descripcion" formControlName="descripcion" required></textarea>
+                                <mat-error *ngIf="mostrar && formControls.descripcion.hasError('required')">Es necesario que ingrese una descripción historica de la imagen
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div style="margin-left: 15%; width: 70%;">
+                            <select formControlName="categoria" class="form-control">
+                                <option value="Pinturas">Pinturas</option>
+                                <option value="Esculturas">Esculturas</option>
+                                <option value="Lugares">Lugares</option>
+                            </select>
+                        </div>
+                        <div style="margin-left: 15%; width: 70%;" hidden>
+                            <input class="form-control" type="number" formControlName="id" placeholder="descripcion">
+                        </div>
+
+                        <div style="margin-left: 15%; margin-top: 3%; width: 70%;">
+                            <button mat-raised-button color="primary" class="btn-delete activatebutton" [disabled]="formTemplate.invalid">Agregar</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+
+        </mat-tab>
+
+        <!-- Contenedor 3 -->
+        <mat-tab label="Japón">
+            <div class="contenedorAgregar">
+
+                <div class="titulo">
+                    <h2 class="mat-display-2" style="text-align:center;">Agregar imagenes para Japón</h2>
+                </div>
+
+                <form class="bodyAgregar" [formGroup]="formTemplate" (submit)="agregarJapon(formTemplate.value)">
+                    <div class="imagen">
+                        <img [src]="imagenFuente" width="70%" height="100%" style="margin-left: 15%;" (click)="fileUploader.click()">
+                    </div>
+                    <div fxLayout="colums" class="bodyDatos">
+                        <div style="margin-left: 15%; width: 70%;">
+                            <label>Selecciona una imagen</label><br>
+                            <input type="file" accept="image/*" class="form-control" #fileUploader formControlName="imagenUrl" (change)="mostrarVistaPrevia($event)">
+                            <div class="text-danger" *ngIf="mostrar && formControls.imagenUrl.errors?.required">Imagen es requerida
+                            </div>
+                        </div>
+                        <div style="margin-left: 15%; width: 70%;">
+                            <mat-form-field class="medidaInput">
+                                <mat-label>Título</mat-label>
+                                <input matInput placeholder="Ingresa el título de la imagen" formControlName="titulo" required>
+                                <mat-error *ngIf="mostrar && formControls.titulo.hasError('required')">Es necesario que ingrese un titulo para la imagen
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div style="margin-left: 15%; width: 70%;">
+                            <mat-form-field class="medidaInput">
+                                <mat-label>Descripcion</mat-label>
+                                <textarea matInput placeholder="Ingresa una descripcion" formControlName="descripcion" required></textarea>
+                                <mat-error *ngIf="mostrar && formControls.descripcion.hasError('required')">Es necesario que ingrese una descripción historica de la imagen
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div style="margin-left: 15%; width: 70%;">
+                            <select formControlName="categoria" class="form-control">
+                                <option value="Pinturas">Pinturas</option>
+                                <option value="Esculturas">Esculturas</option>
+                                <option value="Lugares">Lugares</option>
+                            </select>
+                        </div>
+                        <div style="margin-left: 15%; width: 70%;" hidden>
+                            <input class="form-control" type="number" formControlName="id" placeholder="descripcion">
+                        </div>
+
+                        <div style="margin-left: 15%; margin-top: 3%; width: 70%;">
+                            <button mat-raised-button color="primary" class="btn-delete activatebutton" [disabled]="formTemplate.invalid">Agregar</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </mat-tab>
+
+        <!-- Contenedor 4 -->
+        <mat-tab label="Egipto">
+            <div class="contenedorAgregar">
+
+                <div class="titulo">
+                    <h2 class="mat-display-2" style="text-align:center;">Agregar imagenes para Egipto</h2>
+                </div>
+
+                <form class="bodyAgregar" [formGroup]="formTemplate" (submit)="agregarEgipto(formTemplate.value)">
+                    <div class="imagen">
+                        <img [src]="imagenFuente" width="70%" height="100%" style="margin-left: 15%;" (click)="fileUploader.click()">
+                    </div>
+                    <div fxLayout="colums" class="bodyDatos">
+                        <div style="margin-left: 15%; width: 70%;">
+                            <label>Selecciona una imagen</label><br>
+                            <input type="file" accept="image/*" class="form-control" #fileUploader formControlName="imagenUrl" (change)="mostrarVistaPrevia($event)">
+                            <div class="text-danger" *ngIf="mostrar && formControls.imagenUrl.errors?.required">Imagen es requerida
+                            </div>
+                        </div>
+                        <div style="margin-left: 15%; width: 70%;">
+                            <mat-form-field class="medidaInput">
+                                <mat-label>Título</mat-label>
+                                <input matInput placeholder="Ingresa el título de la imagen" formControlName="titulo" required>
+                                <mat-error *ngIf="mostrar && formControls.titulo.hasError('required')">Es necesario que ingrese un titulo para la imagen
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div style="margin-left: 15%; width: 70%;">
+                            <mat-form-field class="medidaInput">
+                                <mat-label>Descripcion</mat-label>
+                                <textarea matInput placeholder="Ingresa una descripcion" formControlName="descripcion" required></textarea>
+                                <mat-error *ngIf="mostrar && formControls.descripcion.hasError('required')">Es necesario que ingrese una descripción historica de la imagen
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div style="margin-left: 15%; width: 70%;">
+                            <select formControlName="categoria" class="form-control">
+                                <option value="Pinturas">Pinturas</option>
+                                <option value="Esculturas">Esculturas</option>
+                                <option value="Lugares">Lugares</option>
+                            </select>
+                        </div>
+                        <div style="margin-left: 15%; width: 70%;" hidden>
+                            <input class="form-control" type="number" formControlName="id" placeholder="descripcion">
+                        </div>
+
+                        <div style="margin-left: 15%; margin-top: 3%; width: 70%;">
+                            <button mat-raised-button color="primary" class="btn-delete activatebutton" [disabled]="formTemplate.invalid">Agregar</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </mat-tab>
+
+    </mat-tab-group>
+
+</section>

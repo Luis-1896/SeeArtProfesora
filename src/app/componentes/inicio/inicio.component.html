@@ -1,0 +1,72 @@
+<section class="contenedor">
+    <div class="logotipos" fxLayout="row" fxLayoutAlign=" none">
+        <div class="logoUPIITA">
+            <img class="imageUPIITA" width="35%" height="90%" src="../../../assets/upiita.png">
+        </div>
+        <div class="titulo">
+            <!-- <h1 class="mat-display-3" style="text-align:center; margin-top: 6%;">SeeArt</h1> -->
+            <img class="image" width="100%" heigth="20vh" src="../../../assets/SeeArt.png">
+        </div>
+        <div class="logoCENDI">
+            <img class="imageUPIITA" width="35%" height="90%" src="../../../assets/CENDI.png">
+        </div>
+    </div>
+
+    <div class="sliderSeeArt" fxLayout="column" fxLayoutAlign="none">
+        <h2 class="mat-display-1" style="text-align:center; margin-top:5px; margin-bottom: -1px;">Bienvenida(o) {{nombreProfesora}}
+        </h2>
+        <angular-image-slider [autoRotate]="true" [autoRotateAfter]="5000" [autoRotateRight]="true" [images]="imagesUrl"></angular-image-slider>
+    </div>
+
+    <div class="opciones">
+        <div class="jugadores" fxLayout="column">
+            <div class="contenedorJugador" fxLayout="column">
+                <div class="tituloOP">
+                    <h3 style="text-align: center; ">Jugadores</h3>
+                </div>
+                <div class="contenidoOP">
+                    <p style="text-align: justify; padding: 10px 10px 0px;">
+                        Usted podra agregar un usuario, editar sus campos o eliminarlo para que pueda acceder a la aplicación de SeeArt.
+                    </p>
+                </div>
+                <div class="accederOP">
+                    <button mat-fab color="primary" routerLink="/jugadores" routerLinkActive="active" style="left:41%; right: 41%;">Acceder</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="videojuegos">
+            <div class="contenedorJugador" fxLayout="column">
+                <div class="tituloOP">
+                    <h3 style="text-align: center; ">Videojuegos</h3>
+                </div>
+                <div class="contenidoOP">
+                    <p style="text-align: justify; padding: 10px 10px 0px;">
+                        Usted podra obtener el puntaje que haya obtenido cada uno de sus alumnos en los videojuegos de SeeArt
+                    </p>
+                </div>
+                <div class="accederOP">
+                    <button mat-fab color="primary" routerLink="/videojuegos" routerLinkActive="active" style="left:41%; right: 41%;">Acceder</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="galeria">
+            <div class="contenedorJugador" fxLayout="column">
+                <div class="tituloOP">
+                    <h3 style="text-align: center; ">Galería</h3>
+                </div>
+                <div class="contenidoOP">
+                    <p style="text-align: justify; padding: 10px 10px 0px;">
+                        Usted podra agregar nuevo contenido de imagenes de los paises de México, Japón, Francia y Egipto para la aplicación de SeeArt.
+                    </p>
+                </div>
+                <div class="accederOP">
+                    <button mat-fab color="primary" routerLink="/galeria" routerLinkActive="active" style="left:40%; right: 40%;">Acceder</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>

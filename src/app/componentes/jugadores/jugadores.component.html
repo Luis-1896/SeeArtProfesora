@@ -1,0 +1,110 @@
+<section class="contenedorJ">
+    <mat-tab-group mat-align-tabs="end">
+
+        <!-- Contenedor 1 -->
+        <mat-tab label="Agregar">
+            <div class="contenedorAgregar">
+
+                <div class="tituloSeeArt" fxLayout="column" fxLayoutAlign="center">
+                    <div class="titulo">
+                        <img class="image" width="100%" heigth="8vh" src="../../../assets/SeeArt.png">
+                    </div>
+                </div>
+
+                <div class="agregarAlumno" fxLayout="column" fxLayoutAlign="space-between stretch">
+                    <div>
+                        <h3 class="mat-display-2" style="text-align:center; margin: 2% 3% 0;">Nuevo Alumno</h3>
+                    </div>
+                    <form #f="ngForm" (ngSubmit)="newAlumno(f)" style="margin:16% 3% 0;">
+
+                        <div>
+                            <mat-form-field class="medidaInput">
+                                <input matInput ngModel name="nombre" #nombre="ngModel" type="text" placeholder="Introduce el nombre completo del alumno" required>
+                                <mat-error *ngIf="nombre.touched">Nombre es requerido</mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <div>
+                            <mat-form-field class="medidaInput">
+                                <input matInput ngModel name="id" #id="ngModel" type="text" placeholder="Introduce el ID del alumno" required>
+                                <mat-error *ngIf="id.touched">ID es requerido</mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <div>
+                            <mat-form-field class="medidaInput">
+                                <input matInput ngModel name="nickname" #nickname="ngModel" type="text" placeholder="Introduce el alias del alumno" required>
+                                <mat-error *ngIf="nickname.touched">Alias es requerido</mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <div>
+                            <button mat-raised-button color="primary" class="btn-delete activatebutton" [disabled]="f.invalid">Crear cuenta</button>
+                        </div>
+
+                    </form>
+                </div>
+
+                <div class="sliderSeeArt">
+                    <div style="margin-top: 18vh;" fxShow fxHide.xs>
+                        <angular-image-slider [autoRotate]="true" [autoRotateAfter]="5000" [autoRotateRight]="true" [images]="imagesUrl"></angular-image-slider>
+                    </div>
+                </div>
+            </div>
+        </mat-tab>
+
+        <!-- Contenedor 2 -->
+        <mat-tab label="Ver Jugadores">
+            <div class="contenedorAgregar">
+                <div class="noData" *ngIf="alumnoData.length <= 0">
+                    <h2 class="mat-display-2" style="text-align:center;"> Aún no se tienen alumnos agregados</h2>
+                </div>
+                <div class="tituloJugadores" *ngIf="alumnoData.length > 0">
+                    <h2 class="mat-display-2" style="text-align:center;"> Jugadores</h2>
+                </div>
+                <div class="contenedorAgregarJugador" *ngIf="alumnoData.length > 0">
+                    <table mat-table [dataSource]="dataSource" style="width: 80%; margin-left: 10%;">
+                        <ng-container matColumnDef="$key">
+                            <th mat-header-cell *matHeaderCellDef> Alumno Key </th>
+                            <td mat-cell *matCellDef="let element"> {{element.$key}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="nombre">
+                            <th mat-header-cell *matHeaderCellDef> Nombre </th>
+                            <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="id">
+                            <th mat-header-cell *matHeaderCellDef> ID Alumno</th>
+                            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="nickname">
+                            <th mat-header-cell *matHeaderCellDef> Alias </th>
+                            <td mat-cell *matCellDef="let element"> {{element.nickname}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="action">
+                            <th mat-header-cell *matHeaderCellDef> Acción </th>
+                            <td mat-cell *matCellDef="let element; let i = index;">
+                                <button mat-icon-button aria-label="Edit" color="accent" style="margin-right: 2%;" [routerLink]="['/editar-alumno', element.$key]">
+                                    <mat-icon>edit</mat-icon>
+                                </button>
+                                <button mat-icon-button aria-label="Edit" color="primary" (click)="deleteAlumno(i, element)">
+                                    <mat-icon>delete</mat-icon>
+                                </button>
+                            </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+
+                    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons style="width: 80%; margin-left: 10%;"></mat-paginator>
+
+                </div>
+            </div>
+        </mat-tab>
+
+    </mat-tab-group>
+</section>
