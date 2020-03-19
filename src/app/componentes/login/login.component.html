@@ -14,7 +14,7 @@
                     <div>
                         <mat-form-field class="medidaInput">
                             <input matInput type="email" ngModel name="email" #email="ngModel" placeholder="Ingresa tu correo electrónico" required email>
-                            <mat-error *ngIf="email.touched && email.errors?.required">Correo electrónico es requerico
+                            <mat-error *ngIf="email.touched && email.errors?.required">Correo electrónico es requerido
                             </mat-error>
                             <mat-error *ngIf="email.touched && email.errors?.email">Tu entrada no coincide con el formato de un correo electrónico</mat-error>
                         </mat-form-field>
@@ -33,7 +33,7 @@
                             sesión</button>
                     </div>
                     <div>
-                        <p style="text-align: center;">¿Aún no tienes una cuenta? <a routerLink="/registro" routerLinkActive="active" onmouseout="this.style.color='black'" onmouseover="this.style.color='blue'" style="color:black;">Registrate
+                        <p style="text-align: center;">¿Aún no tienes una cuenta? <a routerLink="/registro" routerLinkActive="active" onmouseout="this.style.color='black'" onmouseover="this.style.color='blue'" style="color:black;">Regístrate
                                 aquí</a>
                         </p>
                     </div>

@@ -12,7 +12,7 @@
                     <div>
                         <mat-form-field class="medidaInput">
                             <input matInput ngModel name="name" #name="ngModel" type="text" placeholder="Introduce tu nombre completo" required>
-                            <mat-error *ngIf="name.touched">Nombre es Requerido</mat-error>
+                            <mat-error *ngIf="name.touched">Nombre es requerido</mat-error>
                         </mat-form-field>
 
                     </div>
@@ -20,7 +20,7 @@
                     <div>
                         <mat-form-field class="medidaInput">
                             <input matInput ngModel name="email" #email="ngModel" type="email" placeholder="Introduce tu correo electrónico" required email>
-                            <mat-error *ngIf="email.touched && email.errors?.required">Correo electrónico es requerico
+                            <mat-error *ngIf="email.touched && email.errors?.required">Correo electrónico es requerido
                             </mat-error>
                             <mat-error *ngIf="email.touched && email.errors?.email">Tu entrada no coincide con el formato de un correo electrónico
                             </mat-error>
