@@ -21,10 +21,9 @@
 
 .contenedorFormulario {
     width: 80%;
-    height: 80%;
+    height: 60%;
     position: absolute;
-    top: 8%;
-    bottom: 8%;
+    top: 12%;
     left: 9%;
     right: 9%;
     border: 3px solid rgb(24, 46, 175);
