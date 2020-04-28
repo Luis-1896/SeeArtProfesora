@@ -33,20 +33,22 @@ export class RegistroComponent implements OnInit {
    * @param form ;Se tiene todas los datos ingresados del formulario de Registrar
    */
   signup(form) {
-    const data: Profesora = form.value;
-    this.autenticacionService.signup(data.email, data.password)
-      .then(resultado => {
-        this.errorMessage = '';
-        data.id = resultado.user.uid;
-        data.sesionActiva = true;
-        this.usuarioService.crearProfesora(data).then(resul => {
-          sessionStorage.setItem('keyProfesora', resul.key);
-          sessionStorage.setItem('idProfesora', data.id);
-          this.router.navigate(['/bienvenido']).then(() => location.reload());
-        }).catch(err => console.log('error', err));
-      }).catch(err => {
-        this.errorMessage = err.message;
-      });
+    const data = {
+      email: form.value.email,
+      name: form.value.name,
+      password: form.value.password,
+      id: null,
+      sesionActiva: null
+    };
+    this.autenticacionService.signup(data.email, data.password).then(resultado => {
+      this.errorMessage = '';
+      data.id = resultado.user.uid;
+      data.sesionActiva = true;
+      this.usuarioService.crearProfesora(data).then(result => {
+        sessionStorage.setItem('keyProfesora', result.key);
+        sessionStorage.setItem('idProfesora', data.id);
+      }).catch(err => this.errorMessage = err);
+    }).catch(err => this.errorMessage = err.message);
   }
 
 }

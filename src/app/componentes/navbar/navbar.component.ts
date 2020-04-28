@@ -14,9 +14,8 @@ export class NavbarComponent implements OnInit {
   /**
    * Variables para saber si ya inicio sesion la profesora y mostrar mas opciones del navbar
    */
-  private esProfesora = false;
-  sesionActiva = true;
-  profe: string;
+  private esProfesora: boolean;
+  sesionActiva: boolean;
   constructor(
     private autenticacionService: AutenticacionService,
     private router: Router,
@@ -30,6 +29,8 @@ export class NavbarComponent implements OnInit {
     this.autenticacionService.user.subscribe(user => {
       if (user) {
         this.esProfesora = true;
+      } else {
+        this.esProfesora = false;
       }
     });
   }
@@ -38,7 +39,7 @@ export class NavbarComponent implements OnInit {
    * Funcion que Sirve para mostrar la KEY de la profesora y esa key sea copiada en la aplicación de Unity
    */
   openSnackBar() {
-    this._snackBar.open(this.profe = sessionStorage.getItem('keyProfesora'), "Clave de la profesora en Unity", {
+    this._snackBar.open(sessionStorage.getItem('keyProfesora'), "Clave de la profesora en Unity", {
       duration: 10000,
     });
   }
@@ -52,7 +53,6 @@ export class NavbarComponent implements OnInit {
     this.autenticacionService.logout()
       .then(() => {
         this.esProfesora = false;
-        this.profe = '';
         this.router.navigate(['/']);
       }).catch(err => console.log(err));
   }

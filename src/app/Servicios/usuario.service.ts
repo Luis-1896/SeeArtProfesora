@@ -17,7 +17,7 @@ export class UsuarioService {
 
   /* Metodos CRUD */
 
-  crearProfesora(profesora: Profesora) {
+  crearProfesora(profesora) {
     return this.profesoraRef.push(profesora);
   }
 

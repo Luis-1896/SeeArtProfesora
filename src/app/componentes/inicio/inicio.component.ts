@@ -44,12 +44,12 @@ export class InicioComponent implements OnInit {
           ({ key: c.payload.key, ...c.payload.val() })
         ))).subscribe(profesoras => {
           this.profesoras = profesoras;
-          for (let i = 0; i < this.profesoras.length; i++) {
-            if (this.profesoras[i].id === sessionStorage.getItem('idProfesora')) {
-              this.nombreProfesora = this.profesoras[i].name;
-              sessionStorage.setItem('keyProfesora', this.profesoras[i].key);
+          const nombreProf = this.profesoras.map(function (prof) {
+            if (prof.key === sessionStorage.getItem('keyProfesora')) {
+              return prof.name;
             }
-          }
+          });
+          this.nombreProfesora = nombreProf.find(element => element !== undefined)
         });
   }
 
