@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 import { finalize, map } from "rxjs/operators";
 import { AngularFireStorage } from '@angular/fire/storage';
 import { GaleriaService } from 'src/app/Servicios/galeria.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-galeria',
@@ -18,6 +19,7 @@ export class GaleriaComponent implements OnInit {
   imagenSeleccionada: any = null;
   mostrar: boolean;
   imagenes: any;
+  mensajeImagen: string;
 
   /**
    * Se almacenan el numero de registros que ya se tienen en la bd de Firebase México
@@ -58,7 +60,9 @@ export class GaleriaComponent implements OnInit {
     id: new FormControl('')
   });
 
-  constructor(private angularFireStorage: AngularFireStorage, private galeriaService: GaleriaService) { }
+  constructor(private angularFireStorage: AngularFireStorage,
+    private galeriaService: GaleriaService,
+    private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.getNumeroImagenesMexico();
@@ -68,6 +72,14 @@ export class GaleriaComponent implements OnInit {
     this.resetForm();
   }
 
+  /**
+   * Funcion que Sirve para mostrar la KEY de la profesora y esa key sea copiada en la aplicación de Unity
+   */
+  openSnackBar(mensajeImagen: string) {
+    this._snackBar.open(mensajeImagen, 'Cerrar', {
+      duration: 2000,
+    });
+  }
   /**
    * @param event Se muestra la imagen seleccionada
    */
@@ -106,8 +118,16 @@ export class GaleriaComponent implements OnInit {
             if (catego === 'Esculturas') {
               formValue['id'] = 6001 + this.lengthEsculturas;
             }
-            this.galeriaService.insertarImagenDetalle('mexico', catego, formValue['id'], formValue);
-            this.resetForm();
+            this.galeriaService.insertarImagenDetalle('mexico', catego, formValue['id'], formValue)
+              .then(() => {
+                this.mensajeImagen = 'Imagen subida exitosamente';
+                this.openSnackBar(this.mensajeImagen);
+                this.resetForm();
+              }).catch(error => {
+                this.mensajeImagen = 'La imagen no se subio correctamente';
+                this.openSnackBar(this.mensajeImagen);
+                console.log(error);
+              });
           });
         })).subscribe();
     }
@@ -136,8 +156,15 @@ export class GaleriaComponent implements OnInit {
             if (catego === 'Esculturas') {
               formValue['id'] = 15001 + this.lengthEsculturasF;
             }
-            this.galeriaService.insertarImagenDetalle('francia', catego, formValue['id'], formValue);
-            this.resetForm();
+            this.galeriaService.insertarImagenDetalle('francia', catego, formValue['id'], formValue) .then(() => {
+              this.mensajeImagen = 'Imagen subida exitosamente';
+              this.openSnackBar(this.mensajeImagen);
+              this.resetForm();
+            }).catch(error => {
+              this.mensajeImagen = 'La imagen no se subio correctamente';
+              this.openSnackBar(this.mensajeImagen);
+              console.log(error);
+            });
           });
         })).subscribe();
     }
@@ -166,8 +193,15 @@ export class GaleriaComponent implements OnInit {
             if (catego === 'Esculturas') {
               formValue['id'] = 24001 + this.lengthEsculturasJ;
             }
-            this.galeriaService.insertarImagenDetalle('japon', catego, formValue['id'], formValue);
-            this.resetForm();
+            this.galeriaService.insertarImagenDetalle('japon', catego, formValue['id'], formValue) .then(() => {
+              this.mensajeImagen = 'Imagen subida exitosamente';
+              this.openSnackBar(this.mensajeImagen);
+              this.resetForm();
+            }).catch(error => {
+              this.mensajeImagen = 'La imagen no se subio correctamente';
+              this.openSnackBar(this.mensajeImagen);
+              console.log(error);
+            });
           });
         })).subscribe();
     }
@@ -196,8 +230,15 @@ export class GaleriaComponent implements OnInit {
             if (catego === 'Esculturas') {
               formValue['id'] = 33001 + this.lengthEsculturasE;
             }
-            this.galeriaService.insertarImagenDetalle('egipto', catego, formValue['id'], formValue);
-            this.resetForm();
+            this.galeriaService.insertarImagenDetalle('egipto', catego, formValue['id'], formValue) .then(() => {
+              this.mensajeImagen = 'Imagen subida exitosamente';
+              this.openSnackBar(this.mensajeImagen);
+              this.resetForm();
+            }).catch(error => {
+              this.mensajeImagen = 'La imagen no se subio correctamente';
+              this.openSnackBar(this.mensajeImagen);
+              console.log(error);
+            });
           });
         })).subscribe();
     }
@@ -217,7 +258,7 @@ export class GaleriaComponent implements OnInit {
     this.formTemplate.reset();
     this.formTemplate.setValue({
       descripcion: '',
-      titulo:'',
+      titulo: '',
       imagenUrl: '',
       categoria: 'Pinturas',
       id: 1

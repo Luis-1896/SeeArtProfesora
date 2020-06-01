@@ -15,7 +15,7 @@ export class GaleriaService {
 
   insertarImagenDetalle(pais: string, categoria: string, id: number, data) {
     const imagenes = this.angularFireDatabase.database;
-    imagenes.ref(this.dbPath).child(pais).child(categoria).child(id.toString()).set(data);
+    return imagenes.ref(this.dbPath).child(pais).child(categoria).child(id.toString()).set(data);
   }
 
   getImagenList(pais: string, categoria: string): AngularFireList<any> {

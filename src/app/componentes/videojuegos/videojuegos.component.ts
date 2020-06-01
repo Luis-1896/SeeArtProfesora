@@ -9,12 +9,13 @@ import { UsuarioAlumnoService } from 'src/app/Servicios/usuario-alumno.service';
   styleUrls: ['./videojuegos.component.css']
 })
 export class VideojuegosComponent implements OnInit {
-/**
-   * Variables
-   */
+  /**
+     * Variables
+     */
   dataSource: MatTableDataSource<Alumno>;
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
   alumnoData: any = [];
+  prueba: any = [];
   displayedColumns: any[] = [
     '$key',
     'nombre',
@@ -29,11 +30,15 @@ export class VideojuegosComponent implements OnInit {
   ngOnInit() {
     this.usuarioAlumnoService.getAlumnosList()
       .snapshotChanges().subscribe(alumnos => {
+        //console.log(alumnos);
         alumnos.forEach(item => {
           let a = item.payload.toJSON();
+          //console.log(a);
+          //console.log(item.key);          
           a['$key'] = item.key;
           this.alumnoData.push(a as Alumno);
         });
+        
         this.dataSource = new MatTableDataSource(this.alumnoData);
         setTimeout(() => {
           this.dataSource.paginator = this.paginator;
