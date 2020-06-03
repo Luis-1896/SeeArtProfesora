@@ -33,6 +33,7 @@ import { VideojuegosComponent } from './componentes/videojuegos/videojuegos.comp
 import { GaleriaComponent } from './componentes/galeria/galeria.component';
 import { UpdateComponent } from './componentes/update/update.component';
 import { NotFoundComponent } from './componentes/not-found/not-found.component';
+import { NgImageSliderModule } from 'ng-image-slider';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,7 @@ import { NotFoundComponent } from './componentes/not-found/not-found.component';
     GaleriaComponent,
     UpdateComponent,
     NotFoundComponent,
-    
+
   ],
   imports: [
     BrowserModule,
@@ -67,7 +68,7 @@ import { NotFoundComponent } from './componentes/not-found/not-found.component';
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
-
+    NgImageSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
