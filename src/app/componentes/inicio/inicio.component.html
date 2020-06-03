@@ -1,12 +1,14 @@
 <section class="contenedor">
+
     <div class="logotipos" fxLayout="row" fxLayoutAlign=" none">
         <div class="logoUPIITA">
             <img class="imageUPIITA" width="35%" height="90%" src="../../../assets/upiita.png">
         </div>
+
         <div class="titulo">
-            <!-- <h1 class="mat-display-3" style="text-align:center; margin-top: 6%;">SeeArt</h1> -->
             <img class="image" width="100%" heigth="20vh" src="../../../assets/SeeArt.png">
         </div>
+
         <div class="logoCENDI">
             <img class="imageUPIITA" width="35%" height="90%" src="../../../assets/CENDI.png">
         </div>
@@ -15,7 +17,9 @@
     <div class="sliderSeeArt" fxLayout="column" fxLayoutAlign="none">
         <h2 class="mat-display-1" style="text-align:center; margin-top:5px; margin-bottom: -1px;">Bienvenida(o) {{nombreProfesora}}
         </h2>
-        <angular-image-slider [autoRotate]="true" [autoRotateAfter]="5000" [autoRotateRight]="true" [images]="imagesUrl"></angular-image-slider>
+        <div style="margin-top: 40px;">
+            <ng-image-slider #nav [images]="imageObject" [infinite]="true" [autoSlide]="3" [imageSize]="{width: '30%', height: 300}" slideImage="1"></ng-image-slider>
+        </div>
     </div>
 
     <div class="opciones">

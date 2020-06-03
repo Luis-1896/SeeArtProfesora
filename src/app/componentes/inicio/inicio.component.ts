@@ -16,22 +16,32 @@ export class InicioComponent implements OnInit {
   profesoras: any;
   nombreProfesora = '';
 
+  imageObject = [{
+    image: '../../../assets/SeeArtLogo.png',
+    thumbImage: '../../../assets/SeeArtLogo.png',
+    title: 'SeeArt.'
+  }, {
+    image: '../../../assets/EsfingeDeGiza.png',
+    thumbImage: '../../../assets/EsfingeDeGiza.png',
+    title: 'Modelo de La Gran Esfinge de Guiza.​'
+  }, {
+    image: '../../../assets/Arcos-de-Guadalajara.png',
+    thumbImage: '../../../assets/Arcos-de-Guadalajara.png',
+    title: 'Modelo de Los Arcos de Guadalajara.'
+  }, {
+    image: '../../../assets/TemploPabellonDeOro.png',
+    thumbImage: '../../../assets/TemploPabellonDeOro.png',
+    title: 'Modelo de Kinkaku-ji (Templo del Pabellón de Oro).'
+  }, {
+    image: '../../../assets/arcoTriunfo.png',
+    thumbImage: '../../../assets/arcoTriunfo.png',
+    title: 'Modelo del Arco de Triunfo de París.'
+  }];
+
   constructor(private usuarioService: UsuarioService) { }
 
   ngOnInit() {
-    this.getImagenes();
     this.getProfesoras();
-  }
-
-  /**
-   * Funcion para llenar el array y sea visibles en el Slider
-   */
-  getImagenes() {
-    this.imagesUrl = ['../../../assets/EsfingeDeGiza.png',
-      '../../../assets/SeeArtLogo.png',
-      '../../../assets/Arcos-de-Guadalajara.png',
-      '../../../assets/TemploPabellonDeOro.png',
-      '../../../assets/arcoTriunfo.png'];
   }
 
   /**
@@ -49,7 +59,7 @@ export class InicioComponent implements OnInit {
               return prof.name;
             }
           });
-          this.nombreProfesora = nombreProf.find(element => element !== undefined)
+          this.nombreProfesora = nombreProf.find(element => element !== undefined);
         });
   }
 
